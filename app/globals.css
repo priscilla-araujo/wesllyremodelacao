@@ -1,0 +1,168 @@
+@import "../styles/utilities.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --primary: 185 90% 16%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 9%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 35 21% 95%;
+  --muted-foreground: 215 16% 40%;
+  --accent: 185 35% 95%;
+  --accent-foreground: 185 90% 16%;
+  --border: 220 14% 90%;
+  --input: 220 14% 90%;
+  --ring: 185 90% 16%;
+  --radius: 1.5rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(47, 127, 163, 0.08), transparent 24%),
+    radial-gradient(circle at 86% 12%, rgba(4, 73, 80, 0.08), transparent 24%);
+  z-index: -1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), sans-serif;
+}
+
+::selection {
+  background: rgba(4, 73, 80, 0.2);
+}
+
+@keyframes floatY {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -22px, 0) scale(1.04);
+  }
+}
+
+@keyframes floatX {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(22px, 0, 0);
+  }
+}
+
+@keyframes pulseSoft {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes sheen {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes tiltCard {
+  0%,
+  100% {
+    transform: rotate(-3deg) translateY(0);
+  }
+  50% {
+    transform: rotate(1deg) translateY(-10px);
+  }
+}
+
+.ambient-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 82px 82px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent);
+}
+
+.ambient-orb {
+  animation: floatY 9s ease-in-out infinite;
+}
+
+.ambient-orb-delayed {
+  animation: floatX 12s ease-in-out infinite;
+}
+
+.ambient-pulse {
+  animation: pulseSoft 7s ease-in-out infinite;
+}
+
+.marquee-track {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: inline-flex;
+  min-width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.section-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.14) 45%, transparent 70%);
+  transform: translateX(-120%);
+  animation: sheen 9s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.tilt-card {
+  animation: tiltCard 8s ease-in-out infinite;
+}
