@@ -1,24 +1,15 @@
 # wesllyremodelacao
 
-Site em Next.js para Weslly Remodelacoes e recolha de entulho.
+Versão estática do site da Weslly Remodelações e recolha de entulho.
 
-## Scripts
+## Estrutura
 
-- `npm run dev`
-- `npm run build`
-- `npm start`
+- `index.html`: página principal
+- `404.html`: fallback simples para hospedagem estática
+- `assets/site.css`: estilos finais do site
+- `assets/site.js`: menu mobile e animações em JavaScript puro
+- `images/` e `video/`: arquivos visuais do site
 
-## GitHub Pages
+## Publicação
 
-O projeto esta configurado para publicar automaticamente no GitHub Pages via GitHub Actions.
-
-Link esperado do site publicado:
-
-- `https://priscilla-araujo.github.io/wesllyremodelacao/`
-
-Para ativar no GitHub:
-
-1. Abra `Settings`
-2. Entre em `Pages`
-3. Em `Source`, escolha `GitHub Actions`
-4. Faça um novo `git push` na branch `main`
+O GitHub Pages está configurado para publicar o conteúdo estático do repositório sem etapa de build.
